@@ -41,10 +41,12 @@ namespace Lab_1
                     myOut[row + 1, col + 1] = myVal;
 
                     sum += myVal;
+
+                    // Append current value to the summary in row 0 of the same col:
                     myOut[0, col + 1] += myVal;
                 }
 
-                // Append current value to the summary in row 0 of the same col:
+                // Put the sum of the row into cell 0 of the same row:
                 myOut[row + 1, 0] = sum;
             }
 
