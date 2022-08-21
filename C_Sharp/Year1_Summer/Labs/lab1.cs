@@ -31,7 +31,6 @@ namespace Lab_1
             // Get sums for each row (first col values):
             for (int row = myInput.GetLength(0) - 1; row >= 0; row--)
             {
-                int sum = 0;
                 for (int col = myInput.GetLength(1) - 1; col >= 0; col--)
                 {
                     int myVal = myInput[row, col];
@@ -39,15 +38,11 @@ namespace Lab_1
                     // Put numbers from original array into target array,
                     // Keep first row empty
                     myOut[row + 1, col + 1] = myVal;
-
-                    sum += myVal;
-
                     // Append current value to the summary in row 0 of the same col:
                     myOut[0, col + 1] += myVal;
+                    // Append current value to the summary in col 0 of the same row:
+                    myOut[row + 1, 0] += myVal;
                 }
-
-                // Put the sum of the row into cell 0 of the same row:
-                myOut[row + 1, 0] = sum;
             }
 
             printArray(myInput);
